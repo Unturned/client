@@ -5,7 +5,6 @@ using MoPhoGames.USpeak.Interface;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -430,9 +429,7 @@ public class USpeaker : MonoBehaviour
 		return singleArrays;
 	}
 
-	[DebuggerHidden]
-	private IEnumerator Start()
-	{
+	private IEnumerator Start() {
 		//USpeaker.<Start>c__Iterator0 variable = null;
 		return null;
 	}

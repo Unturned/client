@@ -490,13 +490,10 @@ public class MenuCharacter
 		int offsetY = (frame.position.offset_y - 100) / 50 + MenuCharacter.offset;
 		if (offsetY < (int)MenuCharacter.clans.Length)
 		{
-			// TODO: Steam - NO Steam clans
-			/*
 			PlayerSettings.friend = MenuCharacter.clans[offsetY].m_SteamID.ToString();
 			PlayerSettings.hash();
 			PlayerSettings.save();
 			MenuCharacter.boxClan.text = SteamFriends.GetClanName(MenuCharacter.clans[offsetY]);
-			*/
 		}
 	}
 

@@ -105,7 +105,7 @@ public class AI : MonoBehaviour
 			this.agent.autoRepath = false;
 			this.agent.autoTraverseOffMeshLink = false;
 			this.agent.avoidancePriority = 99;
-			this.agent.enabled = false;
+            this.agent.enabled = false;
 			this.health = this.maxHealth;
 			this.setupServer();
 			if (ServerSettings.dedicated)
