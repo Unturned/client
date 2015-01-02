@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using ModLoader;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviour {
@@ -72,8 +71,6 @@ public class NetworkManager : MonoBehaviour {
 				ServerSettings.passworded = true;
 				int.TryParse(commandLineArgs[i].Substring(9, commandLineArgs[i].Length - 9), out maxPlayers);
 			}
-			
-			Loader.hook();
 		}
 	}
 
