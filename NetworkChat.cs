@@ -1,4 +1,5 @@
 using System;
+using CommandHandler;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -118,6 +119,7 @@ public class NetworkChat : MonoBehaviour
 	public void askChat(string text, int type, NetworkPlayer player) {
 		
 		// Command handler
+		if ( !CommandHandlerMain.isCommand(text, type, player) ) {
 			NetworkUser userFromPlayer = NetworkUserList.getUserFromPlayer(player);
 			if (userFromPlayer != null) {
 				if (text.Length > NetworkChat.MAX_CHARACTERS)
@@ -165,7 +167,7 @@ public class NetworkChat : MonoBehaviour
 					}
 				}
 			}
-		
+		}
 	}
 
 	public static void sendAlert(string text)

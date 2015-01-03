@@ -93,8 +93,7 @@ public class NetworkHandler : MonoBehaviour
 	{
 		if (!Network.isServer)
 		{
-						// Forcing client to Zero status
-			base.networkView.RPC("joinNetworkUser", RPCMode.Server, new object[] { PlayerSettings.user, PlayerSettings.nickname, PlayerSettings.friendHash, PlayerSettings.id, 0, Network.player });
+			base.networkView.RPC("joinNetworkUser", RPCMode.Server, new object[] { PlayerSettings.user, PlayerSettings.nickname, PlayerSettings.friendHash, PlayerSettings.id, PlayerSettings.status, Network.player });
 		}
 		else
 		{

@@ -275,7 +275,7 @@ public class MenuTitle
 
 	public static void usedTitle(SleekFrame frame)
 	{
-		SteamFriends.ActivateGameOverlayToWebPage("http://www.zombieland.ml");
+		SteamFriends.ActivateGameOverlayToWebPage("http://steamcommunity.com/app/304930/announcements");
 	}
 
 	public static void usedWiki(SleekFrame frame)
