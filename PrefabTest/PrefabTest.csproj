@@ -3,51 +3,55 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.0</ProductVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1CBB2C35-B7EE-4E8D-8F44-655D4C948D65}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>AdminCommands</RootNamespace>
-    <AssemblyName>AdminCommands</AssemblyName>
+    <ProjectGuid>{C78C23E7-FE3E-43A8-BFF8-BCCC0A488A95}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PrefabTest</RootNamespace>
+    <AssemblyName>PrefabTest</AssemblyName>
     <ReleaseVersion>1.0</ReleaseVersion>
+    <StartupObject>EmptyClass</StartupObject>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\Debug\mods\Server mods\</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>DEBUG;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>none</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>..\bin\Release\mods\Server mods\</OutputPath>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
   </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="UnityEngine">
-      <HintPath>..\..\UnturnedServer\Unturned_Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\UnturnedSource\libs\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AdminCommands.cs" />
-  </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\Commands\ModLoader.csproj">
-      <Project>{C58FCC14-F882-4D67-B6A8-8353A2B1E126}</Project>
-      <Name>ModLoader</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Assembly-CSharp.csproj">
-      <Project>{d48b790f-7af2-4019-812d-0af1a5140725}</Project>
+      <Project>{D48B790F-7AF2-4019-812D-0AF1A5140725}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EmptyClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

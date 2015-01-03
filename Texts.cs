@@ -493,10 +493,10 @@ public class Texts
 	static Texts()
 	{
 		Texts.VERSION_ID = "2.2.5";
-		Texts.TITLE = "Unturned";
-		Texts.AUTHOR = "by Nelson Sexton";
+		Texts.TITLE = "ZombieLand";
+		Texts.AUTHOR = "by Paál Gyula";
 		Texts.GOLD = "-Golden name in chat and player list.\n-Extra skin colors, hair and faces.\n-Access to special Golden servers.\n-Suit and shades on Golden servers.\n-Extra loot drops on Golden servers.\n-Double experience on Golden servers.\n-Enhanced sleek darker user interface.\n";
-		Texts.NEWS = "Welcome to the Steam Early Access version of Unturned!\nRight now Unturned is going through a massive overhaul for optimizations, dedicated servers on the steam server list, VAC, workshop and overall better networking scheduled for the 3.0 update! Click here to read more.";
+				Texts.NEWS = "Welcome in the modified version of Unturned client (called zombieland) We are working on to fix the game\nIf you find any bug pls report it: paalgyula@gmail.com Thanks.\nVisit us on: http://www.zombieland.ml";
 		Texts.LABEL_NO = "Cancel";
 		Texts.LABEL_YES = "Continue";
 		Texts.LABEL_GOLD_REQUIRED = "Sorry: Gold Upgrade Required";

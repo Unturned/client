@@ -328,16 +328,16 @@ public class MenuCharacter
 			int num9 = 0;
 			while (num9 < (int)MenuCharacter.clans.Length)
 			{
-				// TODO: steam ID
-				/*if (MenuCharacter.clans[num9].m_SteamID != num8)
+				//if (MenuCharacter.clans[num9].m_SteamID != num8)
+				if (MenuCharacter.clans[num9].\u0891 != num8)
 				{
 					num9++;
 				}
 				else
-				{*/
+				{
 					flag = true;
 					break;
-				//}
+				}
 			}
 			if (!flag)
 			{
@@ -490,7 +490,7 @@ public class MenuCharacter
 		int offsetY = (frame.position.offset_y - 100) / 50 + MenuCharacter.offset;
 		if (offsetY < (int)MenuCharacter.clans.Length)
 		{
-			PlayerSettings.friend = MenuCharacter.clans[offsetY].m_SteamID.ToString();
+						PlayerSettings.friend = MenuCharacter.clans[offsetY].\u0891.ToString();
 			PlayerSettings.hash();
 			PlayerSettings.save();
 			MenuCharacter.boxClan.text = SteamFriends.GetClanName(MenuCharacter.clans[offsetY]);

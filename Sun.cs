@@ -212,8 +212,8 @@ public class Sun : MonoBehaviour
 			RenderSettings.fogColor = Camera.main.backgroundColor;
 			if (GraphicsSettings.streaks)
 			{
-				// TODO: GUI
 				//Camera.main.GetComponent<SunShafts>().sunColor = base.light.color;
+								Camera.main.GetComponent<SunShafts>().\u08c8 = base.light.color;
 			}
 			if (Look.zoom != null)
 			{

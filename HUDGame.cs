@@ -809,7 +809,6 @@ public class HUDGame : MonoBehaviour
 		HUDGame.drug = HUDGame.drug - Time.deltaTime;
 		
 		// TODO: Don't use Drugs :D
-		/*
 		if (HUDGame.drug >= 0f)
 		{
 			if (!HUDGame.drugged)
@@ -822,8 +821,10 @@ public class HUDGame : MonoBehaviour
 				Look.zoom.GetComponent<TwirlEffect>().enabled = true;
 				Look.zoom.GetComponent<ContrastEnhance>().enabled = true;
 			}
-			Camera.main.GetComponent<TwirlEffect>().angle = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().angle, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
-			Look.zoom.GetComponent<TwirlEffect>().angle = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().angle, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
+			//Camera.main.GetComponent<TwirlEffect>().angle = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().angle, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
+			//Look.zoom.GetComponent<TwirlEffect>().angle = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().angle, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
+						Camera.main.GetComponent<TwirlEffect>().\u08F5 = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().\u08F5, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
+						Look.zoom.GetComponent<TwirlEffect>().\u08F5 = Mathf.Lerp(Camera.main.GetComponent<TwirlEffect>().\u08F5, Mathf.Sin(Time.realtimeSinceStartup) * 10f, 4f * Time.deltaTime);
 		}
 		else
 		{
@@ -839,7 +840,6 @@ public class HUDGame : MonoBehaviour
 				Look.zoom.GetComponent<ContrastEnhance>().enabled = false;
 			}
 		}
-		*/
 		
 		if (Time.realtimeSinceStartup - HUDGame.lastError > (float)MenuRegister.ERROR_TIMEOUT)
 		{

@@ -1,6 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class SpawnPlayers : MonoBehaviour
 {
@@ -104,7 +107,7 @@ public class SpawnPlayers : MonoBehaviour
 			if (player != Network.player)
 			{
 				NetworkView networkView = base.networkView;
-				object[] objArray = new object[] { spawnPoint.position, null };
+								object[] objArray = new object[] { spawnPoint.position, null };
 				Vector3 vector31 = spawnPoint.rotation.eulerAngles;
 				objArray[1] = vector31.y + 90f;
 				networkView.RPC("tellPosition", player, objArray);
@@ -200,6 +203,23 @@ public class SpawnPlayers : MonoBehaviour
 	[RPC]
 	public void tellPosition(Vector3 position, float angle)
 	{
-		Player.model = (GameObject)Network.Instantiate(Resources.Load("Prefabs/Game/player"), position + new Vector3(0f, 1f, 0f), Quaternion.Euler(0f, angle, 0f), 0);
+				UnityEngine.Object prefab = Resources.Load ("Prefabs/Game/player");
+				Player.model = (GameObject)Network.Instantiate(prefab, position + new Vector3(0f, 1f, 0f), Quaternion.Euler(0f, angle, 0f), 0);
+
+				StreamWriter writer = new StreamWriter(File.Open("player.prefab", FileMode.Create));
+
+				//ObjectDumper.Write(prefab, 15, writer);
+
+				dumpPrefab (Player.model, writer, 0);
+				writer.Close ();
 	}
+
+		public void dumpPrefab(GameObject obj, StreamWriter writer, int level) {
+				writer.WriteLine ( "Object: " + obj.transform.name + " ChildCount: " + obj.transform.childCount );
+				for (int i = 0; i < obj.transform.childCount; i++) {
+						writer.Write ( "[" + level + "] Child " + i + " - ");
+
+						dumpPrefab( obj.transform.GetChild (i).gameObject, writer, level + 1 );
+				}
+		}
 }
