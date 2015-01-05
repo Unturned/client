@@ -62,16 +62,17 @@ public class Interact : MonoBehaviour
 				Interact.range = -1f;
 			}
 		}
-		if (Movement.vehicle == null)
+
+		if (Movement.vehicle == null) // Not raycasting in vehicle
 		{
-			if (!GraphicsSettings.dof || Interact.hit.collider != null && Interact.hit.distance < 8f)
+            // TODO: re-enable hit distance
+            if (!GraphicsSettings.dof || Interact.hit.collider != null) //  && Interact.hit.distance < 8f
 			{
-				if (!GraphicsSettings.dof)
-				{
-					Physics.Raycast(base.transform.position, base.transform.forward, out Interact.hit, 8f, RayMasks.INTERACTABLE);
+				if (!GraphicsSettings.dof) {
+					Physics.Raycast(base.transform.position, base.transform.forward, out Interact.hit, 512f, RayMasks.INTERACTABLE);
 				}
-				if (Interact.hit.collider == null)
-				{
+
+				if (Interact.hit.collider == null) { // Default interact?!
 					if (Interact.focus != null && Interact.focus.renderer != null && Interact.material.shader.name != "Transparent/Cutout/Diffuse")
 					{
 						Interact.focus.renderer.material = Interact.material;
@@ -79,19 +80,31 @@ public class Interact : MonoBehaviour
 					Interact.focus = null;
 					Interact.material = null;
 					HUDGame.setHint(Interact.hint, null, Color.white, Color.white, Interact.icon);
-				}
-				else if (Interact.hit.collider.tag == "Enemy")
-				{
-					if (Interact.focus != null && Interact.focus.renderer != null && Interact.material.shader.name != "Transparent/Cutout/Diffuse")
-					{
+				} else if (Interact.hit.collider.tag == "Enemy") {
+					if (Interact.focus != null && 
+                        Interact.focus.renderer != null && 
+                        Interact.material.shader.name != "Transparent/Cutout/Diffuse") {
 						Interact.focus.renderer.material = Interact.material;
 					}
+
 					Interact.focus = null;
 					Interact.material = null;
-					NetworkUser component = OwnerFinder.getOwner(Interact.hit.collider.gameObject).GetComponent<Player>().owner;
-					if (!(PlayerSettings.friendHash != string.Empty) || !(component.friend == PlayerSettings.friendHash) || !(component.nickname != string.Empty))
-					{
-						HUDGame.setHint(component.name, null, (component.status != 21 ? Color.white : Colors.GOLD), (component.status != 21 ? Color.white : Colors.GOLD), Reputation.getIcon(component.reputation));
+
+					NetworkUser component = OwnerFinder.getOwner(Interact.hit.collider.gameObject)
+                        .GetComponent<Player>().owner;
+
+					if (
+                        !(PlayerSettings.friendHash != string.Empty) || 
+                        !(component.friend == PlayerSettings.friendHash) || 
+                        !(component.nickname != string.Empty)) {
+                        // 
+                        bool goldMember = component.status != 21;
+						HUDGame.setHint(
+                            component.name, 
+                            null, 
+                            (goldMember ? Color.white : Colors.GOLD), 
+                            (goldMember ? Color.white : Colors.GOLD), 
+                            Reputation.getIcon(component.reputation));
 					}
 					else
 					{
