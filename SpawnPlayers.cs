@@ -206,6 +206,7 @@ public class SpawnPlayers : MonoBehaviour
 				UnityEngine.Object prefab = Resources.Load ("Prefabs/Game/player");
 				Player.model = (GameObject)Network.Instantiate(prefab, position + new Vector3(0f, 1f, 0f), Quaternion.Euler(0f, angle, 0f), 0);
 
+        Debug.LogError("Player prefab instanceID: " + prefab.GetInstanceID());
 				StreamWriter writer = new StreamWriter(File.Open("player.prefab", FileMode.Create));
 
 				//ObjectDumper.Write(prefab, 15, writer);
