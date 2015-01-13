@@ -31,9 +31,6 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="UnityEngine">
-      <HintPath>..\UnturnedServer\Unturned_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -43,11 +40,11 @@
     <Reference Include="NSpeex">
       <HintPath>libs\NSpeex.dll</HintPath>
     </Reference>
-    <Reference Include="UnityScript.Lang">
-      <HintPath>libs\UnityScript.Lang.dll</HintPath>
-    </Reference>
     <Reference Include="Assembly-UnityScript-firstpass">
       <HintPath>libs\Assembly-UnityScript-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>libs\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
