@@ -201,7 +201,7 @@ public class MenuTitle
                 {
                     position = new Coord2(-210, -150, 1f, 1f),
                     size = new Coord2(200, 40, 0f, 0f),
-                    text = Texts.LABEL_BUGS
+                    text = "Connect to ZombieLand..."
                 };
             MenuTitle.buttonZombieLand.onUsed += new SleekDelegate(MenuTitle.usedZombieLand);
             MenuTitle.container.addFrame(MenuTitle.buttonZombieLand);
@@ -277,6 +277,8 @@ public class MenuTitle
     }
 
     public static void usedZombieLand(SleekFrame frame) {
-        SteamFriends.ActivateGameOverlayToWebPage("http://www.zombieland.ml/");
+        MenuTitle.close();
+        MenuRegister.openInfo(Texts.INFO_CONNECTING, "Textures/Icons/go");
+        NetworkTools.connectIP("srv.zombieland.ml", 25444, String.Empty);
     }
 }

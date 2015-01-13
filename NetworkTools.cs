@@ -58,10 +58,10 @@ public class NetworkTools
 		Network.InitializeSecurity();
 		Network.incomingPassword = password;
 		
+        NetworkBans.load();
 		string lower = Network.InitializeServer((!ServerSettings.dedicated ? players - 1 : players), port, false).ToString().ToLower();
 		
 		ServerSettings.passworded = password != string.Empty;
-		NetworkBans.load();
 		if (lower == "noerror")
 		{
 			if (!ServerSettings.open)

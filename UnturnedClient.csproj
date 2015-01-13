@@ -9,9 +9,9 @@
     <OutputType>Library</OutputType>
     <ProductVersion>8.0.30703</ProductVersion>
     <RootNamespace>AssemblyCSharp</RootNamespace>
-    <ReleaseVersion>1.0</ReleaseVersion>
+    <ReleaseVersion>2.2.5</ReleaseVersion>
     <CodePage>65001</CodePage>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -21,30 +21,34 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>full</DebugType>
     <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
     <Optimize>True</Optimize>
     <WarningLevel>4</WarningLevel>
-    <DebugType>pdbonly</DebugType>
     <ErrorReport>prompt</ErrorReport>
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NSpeex">
-      <HintPath>..\UnturnedServer\Unturned_Data\Managed\NSpeex.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine">
       <HintPath>..\UnturnedServer\Unturned_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\UnturnedServer\Unturned_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>libs\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="NSpeex">
+      <HintPath>libs\NSpeex.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript.Lang">
+      <HintPath>libs\UnityScript.Lang.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-UnityScript-firstpass">
-      <HintPath>..\UnturnedServer\Unturned_Data\Managed\Assembly-UnityScript-firstpass.dll</HintPath>
+      <HintPath>libs\Assembly-UnityScript-firstpass.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
